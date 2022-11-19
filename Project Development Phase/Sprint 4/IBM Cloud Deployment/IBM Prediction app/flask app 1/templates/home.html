@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style2.css">
+    <title>Landing Page</title>
+</head>
+
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="home.html  "><img src="static/img/logo1.png" alter="Logo" class="logo"></a>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('university') }}">University's</a></li>
+                <li><a href="https://iou.edu.gm/stream/bed/">E-books</a></li>
+                <li><a href="https://scholarships.gov.in/">Scholarship</a></li>
+                <li><a href="{{ url_for('visual') }}">Visualization</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li></i><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>“Live as if you were to die tomorrow,<br> Learn as if you were to live
+                    forever.”<br>―<span><b>Mahatma Gandhi</b></span>
+                </h2>
+                <p>The great thing about learning is that you never have to stop! There’s no limit as to the amount of
+                    knowledge you can obtain. So, rip a page from Gandhi’s book and keep on learning while you’re
+                    living</p>
+                <a href="https://university.careers360.com/articles/cucet-eligibility-criteria">Learn More</a>
+                <a href="{{ url_for('check') }}">Predict My chance</a>
+            </div>
+            <div class="imgBox">
+                <img src="static/img/education4.svg" height="100%" width="100%">
+            </div>
+        </div>
+        <ul class="thumb" id="contact">
+            <li>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-google"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>

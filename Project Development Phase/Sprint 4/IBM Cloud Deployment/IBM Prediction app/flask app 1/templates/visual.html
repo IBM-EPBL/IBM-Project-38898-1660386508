@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style7.css">
+    <title>Visualization</title>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <header>
+            <a href="home.html"><img src="static/img/logo1.png" alter="Logo" class="logo"></a>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('university') }}">University's</a></li>
+                <li><a href="https://iou.edu.gm/stream/bed/">E-books</a></li>
+                <li><a href="https://scholarships.gov.in/">Scholarship</a></li>
+                <li><a href="{{ url_for('visual') }}">Visualization</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li></i><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="charts">
+
+
+        <div class="chartCard">
+
+            <div class="chartBox">
+                <h2>Doughnut Chart</h2>
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <div class="chartBox">
+                <h2>Line Chart</h2>
+                <canvas id="myChart1"></canvas>
+            </div>
+        </div>
+
+        <div class="chartCard1">
+
+            <div class="chartBox">
+                <h2>Pie Chart</h2>
+                <canvas id="myChart2"></canvas>
+            </div>
+
+            <div class="chartBox">
+                <h2>Bar Chart</h2>
+                <canvas id="myChart3"></canvas>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"
+            integrity="sha512-MefNfAGJ/pEy89xLOFs3V6pYPs6AmUhXJrRlydI/9wZuGrqxmrdQ80zKHUcyadAcpH67teDZcBeS6oMJLPtTqw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+        <script>
+
+            const chartData = 'static/data1.csv';
+
+            //parse the file from csv to JSON
+
+            d3.csv(chartData).then(function (datapoints) {
+
+                console.log(datapoints)
+                const SerialNo = [];
+                const GREScore = [];
+                const TOEFLScore = [];
+                const UniversityRating = [];
+                const SOP = [];
+                const LOR = [];
+                const CGPA = [];
+                const Research = [];
+                const ChanceofAdmit = [];
+
+                for (i = 0; i < datapoints.length; i++) {
+                    SerialNo.push(datapoints[i].SerialNo)
+                    GREScore.push(datapoints[i].GREScore)
+                    TOEFLScore.push(datapoints[i].TOEFLScore)
+                    UniversityRating.push(datapoints[i].UniversityRating)
+                    SOP.push(datapoints[i].SOP)
+                    LOR.push(datapoints[i].LOR)
+                    CGPA.push(datapoints[i].CGPA)
+                    Research.push(datapoints[i].Research)
+                    ChanceofAdmit.push(datapoints[i].ChanceofAdmit)
+                }
+
+                // setup 
+                const data = {
+                    labels: ['GREScore', 'TOEFLScore', 'Chance of Admit'],
+                    datasets: [
+                        {
+                            type: 'doughnut',
+                            label: 'Doughnut',
+                            data: [340, 120, 97],
+                            fill: true,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)'
+                            ],
+                            borderColor: ['rgba(255, 26, 104, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(0, 0, 0, 1)']
+                        }
+                    ]
+                };
+
+                // config 
+                const config = {
+                    type: 'bar',
+                    data,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                };
+
+                // render init block
+                const myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config
+                );
+
+            });
+
+        </script>
+
+        <script>
+            google.charts.load('current', {
+                callback: function () {
+                    $.get("static/data1.csv", function (csvString) {
+                        var arrayData = $.csv.toArrays(csvString, { onParseValue: $.csv.hooks.castToScalar });
+
+                        var data = new google.visualization.arrayToDataTable(arrayData);
+
+                        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                        chart.draw(data);
+                    });
+                },
+                packages: ['corechart']
+            });
+        </script>
+
+        <script>
+
+            const chartData1 = 'static/data1.csv';
+
+            //parse the file from csv to JSON
+
+            d3.csv(chartData1).then(function (datapoints) {
+
+                console.log(datapoints)
+                const SerialNo = [];
+                const GREScore = [];
+                const TOEFLScore = [];
+                const UniversityRating = [];
+                const SOP = [];
+                const LOR = [];
+                const CGPA = [];
+                const Research = [];
+                const ChanceofAdmit = [];
+
+                for (i = 0; i < datapoints.length; i++) {
+                    SerialNo.push(datapoints[i].SerialNo)
+                    GREScore.push(datapoints[i].GREScore)
+                    TOEFLScore.push(datapoints[i].TOEFLScore)
+                    UniversityRating.push(datapoints[i].UniversityRating)
+                    SOP.push(datapoints[i].SOP)
+                    LOR.push(datapoints[i].LOR)
+                    CGPA.push(datapoints[i].CGPA)
+                    Research.push(datapoints[i].Research)
+                    ChanceofAdmit.push(datapoints[i].ChanceofAdmit)
+                }
+
+                // setup 
+                const data = {
+                    labels: ['GREScore', 'TOEFLScore', 'UniversityRating', 'SOP', 'LOR', 'CGPA', 'Research', 'Chance of Admit'],
+                    datasets: [
+
+                        {
+                            type: 'line',
+                            label: 'Line Dataset',
+                            data: [340, 120, 5, 5, 5, 10, 1, 0.97],
+                            fill: false,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)'
+                            ],
+                            borderColor: 'rgb(54, 162, 235)'
+                        },
+                    ]
+                };
+
+                // config 
+                const config = {
+                    type: 'bar',
+                    data,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                };
+
+                // render init block
+                const myChart = new Chart(
+                    document.getElementById('myChart1'),
+                    config
+                );
+
+            });
+
+        </script>
+
+        <script>
+            google.charts.load('current', {
+                callback: function () {
+                    $.get("static/data1.csv", function (csvString) {
+                        var arrayData = $.csv.toArrays(csvString, { onParseValue: $.csv.hooks.castToScalar });
+
+                        var data = new google.visualization.arrayToDataTable(arrayData);
+
+                        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                        chart.draw(data);
+                    });
+                },
+                packages: ['corechart']
+            });
+        </script>
+
+        <script>
+
+            const chartData2 = 'static/data1.csv';
+
+            //parse the file from csv to JSON
+
+            d3.csv(chartData2).then(function (datapoints) {
+
+                console.log(datapoints)
+                const SerialNo = [];
+                const GREScore = [];
+                const TOEFLScore = [];
+                const UniversityRating = [];
+                const SOP = [];
+                const LOR = [];
+                const CGPA = [];
+                const Research = [];
+                const ChanceofAdmit = [];
+
+                for (i = 0; i < datapoints.length; i++) {
+                    SerialNo.push(datapoints[i].SerialNo)
+                    GREScore.push(datapoints[i].GREScore)
+                    TOEFLScore.push(datapoints[i].TOEFLScore)
+                    UniversityRating.push(datapoints[i].UniversityRating)
+                    SOP.push(datapoints[i].SOP)
+                    LOR.push(datapoints[i].LOR)
+                    CGPA.push(datapoints[i].CGPA)
+                    Research.push(datapoints[i].Research)
+                    ChanceofAdmit.push(datapoints[i].ChanceofAdmit)
+                }
+
+                // setup 
+                const data = {
+                    labels: ['GREScore', 'TOEFLScore', 'Chance of Admit'],
+                    datasets: [
+                        {
+                            type: 'pie',
+                            label: 'Pie',
+                            data: [340, 120, 97],
+                            fill: true,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)'
+                            ],
+                            borderColor: ['rgba(255, 26, 104, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(0, 0, 0, 1)'],
+                            hoverOffset: 4
+                        }
+                    ]
+                };
+
+                // config 
+                const config = {
+                    type: 'bar',
+                    data,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                };
+
+                // render init block
+                const myChart = new Chart(
+                    document.getElementById('myChart2'),
+                    config
+                );
+
+            });
+
+        </script>
+
+        <script>
+
+            const chartData3 = 'static/data1.csv';
+
+            //parse the file from csv to JSON
+
+            d3.csv(chartData3).then(function (datapoints) {
+
+                console.log(datapoints)
+                const SerialNo = [];
+                const GREScore = [];
+                const TOEFLScore = [];
+                const UniversityRating = [];
+                const SOP = [];
+                const LOR = [];
+                const CGPA = [];
+                const Research = [];
+                const ChanceofAdmit = [];
+
+                for (i = 0; i < datapoints.length; i++) {
+                    SerialNo.push(datapoints[i].SerialNo)
+                    GREScore.push(datapoints[i].GREScore)
+                    TOEFLScore.push(datapoints[i].TOEFLScore)
+                    UniversityRating.push(datapoints[i].UniversityRating)
+                    SOP.push(datapoints[i].SOP)
+                    LOR.push(datapoints[i].LOR)
+                    CGPA.push(datapoints[i].CGPA)
+                    Research.push(datapoints[i].Research)
+                    ChanceofAdmit.push(datapoints[i].ChanceofAdmit)
+                }
+
+                // setup 
+                const data = {
+                    labels: ['GREScore', 'TOEFLScore', 'UniversityRating', 'SOP', 'LOR', 'CGPA', 'Research', 'Chance of Admit'],
+                    datasets: [
+                        {
+                            type: 'bar',
+                            label: 'Bar',
+                            data: [340, 120, 5, 5, 5, 10, 1, 0.97],
+                            fill: true,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)'
+                            ],
+                            borderColor: ['rgba(255, 26, 104, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(0, 0, 0, 1)']
+                        },
+                        {
+                            type: 'line',
+                            label: 'Line Dataset',
+                            data: [340, 120, 5, 5, 5, 10, 1, 0.97],
+                            fill: false,
+                            borderColor: 'rgb(54, 162, 235)'
+                        },
+                    ]
+                };
+
+                // config 
+                const config = {
+                    type: 'bar',
+                    data,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                };
+
+                // render init block
+                const myChart = new Chart(
+                    document.getElementById('myChart3'),
+                    config
+                );
+
+            });
+
+        </script>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+
+    </div>
+
+</body>
+
+</html>

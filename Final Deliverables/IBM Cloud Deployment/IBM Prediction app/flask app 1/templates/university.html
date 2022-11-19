@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style3.css">
+    <title>University Page</title>
+</head>
+
+<body>
+    <section id="card1">
+        <div class="circle"><img src="static/img/1.svg"></div>
+        <header>
+            <a href="home.html"><img src="static/img/logo1.png" alter="Logo" class="logo"></a>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#">University's</a></li>
+                <li><a href="https://iou.edu.gm/stream/bed/">E-books</a></li>
+                <li><a href="https://scholarships.gov.in/">Scholarship</a></li>
+                <li><a href="{{ url_for('visual') }}">Visualization</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        </header>
+
+        <div class="container">
+
+            <div class="main-title">Harvard University</div>
+            <div class="content">
+
+                <input type="radio" name="indicator" checked id="details">
+                <input type="radio" name="indicator" id="images">
+                <input type="radio" name="indicator" id="courses">
+                <input type="radio" name="indicator" id="more">
+
+                <div class="list">
+
+                    <label for="details" class="details">
+                        <i class="bi bi-info-square-fill"></i>
+                        <span class="topic">Detail's</span>
+                    </label>
+
+                    <label for="images" class="images">
+                        <i class="bi bi-images"></i>
+                        <span class="topic">Images's</span>
+                    </label>
+
+                    <label for="courses" class="courses">
+                        <i class="bi bi-book"></i>
+                        <span class="topic">Course's</span>
+                    </label>
+
+                    <label for="more" class="more">
+                        <i class="bi bi-three-dots-vertical"></i>
+                        <span class="topic">More</span>
+                    </label>
+
+                    <div class="indicator"></div>
+
+                </div>
+
+                <div class="text-content">
+                    <div class="details text">
+                        <div class="title">Detail's Content</div>
+                        <p>Harvard University is devoted to excellence in teaching, learning, and research, and to
+                            developing leaders who make a difference globally.</p>
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://economics.harvard.edu/placement">
+                                    Placement</a></button>
+                            <button class="btn btn2"><a href="https://www.harvard.edu/">Website</a></button>
+                            <button class="btn btn3"><a
+                                    href="https://osa.gse.harvard.edu/student-testimonials">Testimonials</a></button>
+                            <button class="btn btn4"><a
+                                    href="https://www.harvard.edu/contact-harvard/">Contact</a></button>
+                        </div>
+                    </div>
+                    <div class="images text">
+                        <div class="title">Image's Content</div>
+                        <img src="static/img/Harvard-University.jpg">
+                    </div>
+                    <div class="courses text">
+                        <div class="title">Course's Content</div>
+                        <p>Overseas Education is growing increasingly popular among students and each year more students
+                            are opting to study abroad rather than in India. With an increasing number of courses being
+                            introduced, the career prospects for students also have multiplied. From the wide variety of
+                            courses available, there are a few that are popular among the students.</p>
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://pll.harvard.edu/catalog">
+                                    Cources</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="more text">
+                        <div class="title">More</div>
+                        <img src="static/img/b1.png" alt="" width="100%" height="100%">
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://news.harvard.edu/gazette/harvard-events/">
+                                    Events</a></button>
+                            <button class="btn btn2"><a
+                                    href="https://college.harvard.edu/academics/research">Research</a></button>
+                            <button class="btn btn3"><a href="https://alumni.harvard.edu/">Alumni</a></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- section 2 -->
+
+    <section id="card2">
+        <div class="circle2"></div>
+
+        <div class="container2">
+
+            <div class="main-title">University of OXFORD</div>
+            <div class="content">
+
+                <input type="radio" name="indicator2" checked id="details2">
+                <input type="radio" name="indicator2" id="images2">
+                <input type="radio" name="indicator2" id="courses2">
+                <input type="radio" name="indicator2" id="more2">
+
+                <div class="list">
+
+                    <label for="details2" class="details2">
+                        <i class="bi bi-info-square-fill"></i>
+                        <span class="topic">Detail's</span>
+                    </label>
+
+                    <label for="images2" class="images2">
+                        <i class="bi bi-images"></i>
+                        <span class="topic">Images's</span>
+                    </label>
+
+                    <label for="courses2" class="courses2">
+                        <i class="bi bi-book"></i>
+                        <span class="topic">Course's</span>
+                    </label>
+
+                    <label for="more2" class="more2">
+                        <i class="bi bi-three-dots-vertical"></i>
+                        <span class="topic">More</span>
+                    </label>
+
+                    <div class="indicator2"></div>
+
+                </div>
+
+                <div class="text-content">
+                    <div class="details2 text">
+                        <div class="title">Detail's Content</div>
+                        <p>Oxford University provides world-class research and education to benefit society on a local,
+                            regional, national and global scale.</p>
+                        <div class="container5">
+                            <button class="btn btn1"><a
+                                    href="https://www.sbs.ox.ac.uk/programmes/degrees/dphil-management/job-market-candidates-and-placements">
+                                    Placement</a></button>
+                            <button class="btn btn2"><a href="https://www.ox.ac.uk/">Website</a></button>
+                            <button class="btn btn3"><a
+                                    href="https://www.wrh.ox.ac.uk/study/msc-in-clinical-embryology/graduate-information/student-testimonials">Testimonials</a></button>
+                            <button class="btn btn4"><a href="https://www.ox.ac.uk/contact-us">Contact</a></button>
+                        </div>
+                    </div>
+                    <div class="images2 text">
+                        <div class="title">Image's Content</div>
+                        <img src="static/img/oxford.jpg">
+                    </div>
+                    <div class="courses2 text">
+                        <div class="title">Course's Content</div>
+                        <p>Overseas Education is growing increasingly popular among students and each year more students
+                            are opting to study abroad rather than in India. With an increasing number of courses being
+                            introduced, the career prospects for students also have multiplied. From the wide variety of
+                            courses available, there are a few that are popular among the students.</p>
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://www.ox.ac.uk/admissions/graduate/courses">
+                                    Cources</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="more2 text">
+                        <div class="title">More</div>
+                        <img src="static/img/b2.png" alt="" width="100%" height="100%">
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://www.ox.ac.uk/news-and-events">
+                                    Events</a></button>
+                            <button class="btn btn2"><a href="https://www.ox.ac.uk/research">Research</a></button>
+                            <button class="btn btn3"><a href="https://www.alumni.ox.ac.uk/">Alumni</a></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- section 3 -->
+
+    <section id="card3">
+        <div class="circle3"></div>
+
+        <div class="container3">
+
+            <div class="main-title">University of Toronto</div>
+            <div class="content">
+
+                <input type="radio" name="indicator3" checked id="details3">
+                <input type="radio" name="indicator3" id="images3">
+                <input type="radio" name="indicator3" id="courses3">
+                <input type="radio" name="indicator3" id="more3">
+
+                <div class="list">
+
+                    <label for="details3" class="details3">
+                        <i class="bi bi-info-square-fill"></i>
+                        <span class="topic">Detail's</span>
+                    </label>
+
+                    <label for="images3" class="images3">
+                        <i class="bi bi-images"></i>
+                        <span class="topic">Images's</span>
+                    </label>
+
+                    <label for="courses3" class="courses3">
+                        <i class="bi bi-book"></i>
+                        <span class="topic">Course's</span>
+                    </label>
+
+                    <label for="more3" class="more3">
+                        <i class="bi bi-three-dots-vertical"></i>
+                        <span class="topic">More</span>
+                    </label>
+
+                    <div class="indicator3"></div>
+
+                </div>
+
+                <div class="text-content">
+                    <div class="details3 text">
+                        <div class="title">Detail's Content</div>
+                        <p>The University of Toronto is a globally top-ranked public research university in Toronto,
+                            Ontario, Canada.</p>
+                        <div class="container5">
+                            <button class="btn btn1"><a
+                                    href="https://www.viceprovoststudents.utoronto.ca/faculty-staff/placements/">
+                                    Placement</a></button>
+                            <button class="btn btn2"><a href="https://www.utoronto.ca/">Website</a></button>
+                            <button class="btn btn3"><a
+                                    href="https://future.utoronto.ca/finances/awards/student-award-testimonials/">Testimonials</a></button>
+                            <button class="btn btn4"><a href="https://www.utoronto.ca/contacts">Contact</a></button>
+                        </div>
+                    </div>
+                    <div class="images3 text">
+                        <div class="title">Image's Content</div>
+                        <img src="static/img/uot.jpg">
+                    </div>
+                    <div class="courses3 text">
+                        <div class="title">Course's Content</div>
+                        <p>Overseas Education is growing increasingly popular among students and each year more students
+                            are opting to study abroad rather than in India. With an increasing number of courses being
+                            introduced, the career prospects for students also have multiplied. From the wide variety of
+                            courses available, there are a few that are popular among the students.</p>
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://www.coursera.org/utoronto">
+                                    Cources</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="more3 text">
+                        <div class="title">More</div>
+                        <img src="static/img/b3.png" alt="" width="100%" height="100%">
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://www.utoronto.ca/news">
+                                    Events</a></button>
+                            <button class="btn btn2"><a
+                                    href="https://www.utoronto.ca/research-innovation">Research</a></button>
+                            <button class="btn btn3"><a href="https://www.utoronto.ca/alumni">Alumni</a></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- section 4 -->
+
+    <section id="card4">
+        <div class="circle4"></div>
+
+        <div class="container4">
+
+            <div class="main-title">University of British Columbia</div>
+            <div class="content">
+
+                <input type="radio" name="indicator4" checked id="details4">
+                <input type="radio" name="indicator4" id="images4">
+                <input type="radio" name="indicator4" id="courses4">
+                <input type="radio" name="indicator4" id="more4">
+
+                <div class="list">
+
+                    <label for="details4" class="details4">
+                        <i class="bi bi-info-square-fill"></i>
+                        <span class="topic">Detail's</span>
+                    </label>
+
+                    <label for="images4" class="images4">
+                        <i class="bi bi-images"></i>
+                        <span class="topic">Images's</span>
+                    </label>
+
+                    <label for="courses4" class="courses4">
+                        <i class="bi bi-book"></i>
+                        <span class="topic">Course's</span>
+                    </label>
+
+                    <label for="more4" class="more4">
+                        <i class="bi bi-three-dots-vertical"></i>
+                        <span class="topic">More</span>
+                    </label>
+
+                    <div class="indicator4"></div>
+
+                </div>
+
+                <div class="text-content">
+                    <div class="details4 text">
+                        <div class="title">Detail's Content</div>
+                        <p>The University of British Columbia is a global centre for research and teaching, consistently
+                            ranked among the top 20 public universities in the world.</p>
+                        <div class="container5">
+                            <button class="btn btn1"><a
+                                    href="https://www.ubc.ca/search/?q=placements#gsc.tab=0&gsc.q=placements&gsc.page=1">
+                                    Placement</a></button>
+                            <button class="btn btn2"><a href="https://www.ubc.ca/">Website</a></button>
+                            <button class="btn btn3"><a
+                                    href="https://www.ubc.ca/search/?q=Testimonials#gsc.tab=0&gsc.q=Testimonials&gsc.page=1">Testimonials</a></button>
+                            <button class="btn btn4"><a
+                                    href="https://www.ubc.ca/about/contact.html">Contact</a></button>
+                        </div>
+                    </div>
+                    <div class="images4 text">
+                        <div class="title">Image's Content</div>
+                        <img src="static/img/uobc.jpg">
+                    </div>
+                    <div class="courses4 text">
+                        <div class="title">Cource's Content</div>
+                        <p>Overseas Education is growing increasingly popular among students and each year more students
+                            are opting to study abroad rather than in India. With an increasing number of courses being
+                            introduced, the career prospects for students also have multiplied. From the wide variety of
+                            courses available, there are a few that are popular among the students.</p>
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://you.ubc.ca/programs/#mode=by-topic&viewMode=list">
+                                    Cources</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="more4 text">
+                        <div class="title">More</div>
+                        <img src="static/img/b4.png" alt="" width="100%" height="100%">
+                        <div class="container5">
+                            <button class="btn btn1"><a href="https://account.you.ubc.ca/s/events">
+                                    Events</a></button>
+                            <button class="btn btn2"><a href="https://www.ubc.ca/research/">Research</a></button>
+                            <button class="btn btn3"><a href="https://alumni.ubc.ca/">Alumni</a></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+</body>
+
+</html>
