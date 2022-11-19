@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style5.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <title>Predication form</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <header>
+            <a href="home.html"><img src="static/img/logo1.png" alter="Logo" class="logo"></a>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('university') }}">University's</a></li>
+                <li><a href="https://iou.edu.gm/stream/bed/">E-books</a></li>
+                <li><a href="https://scholarships.gov.in/">Scholarship</a></li>
+                <li><a href="{{ url_for('visual') }}">Visualization</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li></i><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        </header>
+    </div>
+    <div id="both">
+        <!-- <div class="form-class"> -->
+        <div id="form-class">
+            <h2 id="headingf">Prediction</h2>
+            <form class="formBody" action="{{ url_for('predict') }}" method="POST">
+
+                <div class="inputBox">
+                    <input type="number" required="required" max="340" min="0" name="gre">
+                    <span>Enter your GRE Score :</span>
+                </div>
+
+                <div class="inputBox">
+                    <input type="number" required="required" min="0" max="120" name="toefl">
+                    <span>Enter your TOEFL Score :</span>
+                </div>
+
+                <div class="inputBox">
+                    <input type="number" required="required" min="1" max="5" name="ur">
+                    <span>Enter University Rating :</span>
+                </div>
+
+                <div class="inputBox">
+                    <input type="number" required="required" min="1.0" max="5.0" step="0.1" name="sop">
+                    <span>Enter your SOP Score :</span>
+                </div>
+
+                <div class="inputBox">
+                    <input type="number" required="required" min="1.0" max="5.0" step="0.1" name="lor">
+                    <span>Enter your LOR Score :</span>
+                </div>
+
+                <div class="inputBox">
+                    <input type="number" required="required" min="0.0" max="10.0" step="0.1" name="cgpa">
+                    <span>Enter your CGPA :</span>
+                </div>
+
+                <div class="inputBox">
+                    <input type="number" required="required" min="0" max="1" name="research">
+                    <span>Enter Research :</span>
+                </div>
+
+                <div class="inputBox">
+                    <input type="submit" required="required">
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="circle"></div>
+</body>
+
+</html>
